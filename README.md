@@ -30,8 +30,19 @@ pipeline {
 }
 
 
-
-
+#jenkkins slave node
+pipeline {
+    agent {
+        label 'slave1-apachevm'
+    }
+    stages {
+        stage("Checkout the code") {
+           steps {
+               git branch: 'main', url: 'https://github.com/jdoluwasanmi/springboot-webapplication.git'
+           }
+        }
+    }
+}    
 
 
 
